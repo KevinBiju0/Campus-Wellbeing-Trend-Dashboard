@@ -1,0 +1,26 @@
+# --- Frontend ---
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/*.local
+
+# --- Backend ---
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.egg-info/
+*.pyc
+
+# --- Tests / tooling ---
+.pytest_cache/
+__pycache__/
+
+# --- Env ---
+.env
+.env.local
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: 7 16 30;
+    --bg-secondary: 11 27 45;
+
+    --text-primary: 255 255 255;
+    --text-secondary: 226 232 240;
+    --text-muted: 203 213 225;
+
+    --accent-teal: 66 214 197;
+    --accent-amber: 244 201 93;
+    --accent-coral: 239 125 125;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dusk-950 text-white antialiased;
+
+    min-height: 100vh;
+
+    background-image:
+      radial-gradient(
+        circle at 10% 5%,
+        rgba(66, 214, 197, 0.10),
+        transparent 32%
+      ),
+      radial-gradient(
+        circle at 90% 12%,
+        rgba(244, 201, 93, 0.08),
+        transparent 28%
+      ),
+      linear-gradient(
+        180deg,
+        #07101e 0%,
+        #0b1b2d 58%,
+        #081522 100%
+      );
+
+    background-attachment: fixed;
+  }
+
+  /*
+   * GLOBAL TEXT VISIBILITY
+   *
+   * The application uses a dark navy theme, so text should
+   * remain bright enough to read against glass surfaces.
+   */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #ffffff;
+  }
+
+  p {
+    color: #e2e8f0;
+  }
+
+  label {
+    color: #f8fafc;
+  }
+
+  button {
+    color: #ffffff;
+  }
+
+  input,
+  textarea,
+  select {
+    color: #ffffff;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #94a3b8;
+  }
+
+  ::selection {
+    background: rgba(66, 214, 197, 0.25);
+    color: #ffffff;
+  }
+}
+
+/* -------------------------------------------------------
+   TYPOGRAPHY
+------------------------------------------------------- */
+
+.font-display {
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* -------------------------------------------------------
+   GLASS SURFACES
+------------------------------------------------------- */
+
+.glass-panel {
+  background: rgba(13, 31, 50, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(148, 190, 205, 0.12);
+}
+
+.glass-panel-solid {
+  background: rgba(15, 35, 56, 0.90);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(148, 190, 205, 0.14);
+}
+
+.glass-nav {
+  background: rgba(5, 15, 27, 0.92);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border-right: 1px solid rgba(148, 190, 205, 0.10);
+}
+
+/* -------------------------------------------------------
+   BACKGROUND / VISUAL EFFECTS
+------------------------------------------------------- */
+
+.surface-grid {
+  background-image:
+    linear-gradient(
+      rgba(148, 190, 205, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 190, 205, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 28px 28px;
+}
+
+.signal-glow {
+  box-shadow:
+    0 0 60px rgba(66, 214, 197, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* -------------------------------------------------------
+   INTERACTIVE SURFACES
+------------------------------------------------------- */
+
+.interactive-surface {
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.interactive-surface:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(66, 214, 197, 0.24);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.24);
+}
+
+/* -------------------------------------------------------
+   FORM ELEMENTS
+------------------------------------------------------- */
+
+input,
+textarea,
+select {
+  background-color: rgba(15, 35, 56, 0.85);
+  border-color: rgba(148, 190, 205, 0.18);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(66, 214, 197, 0.55);
+}
+
+/* -------------------------------------------------------
+   SCROLLBAR
+------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(66, 214, 197, 0.20);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(66, 214, 197, 0.34);
+}
+
+/* -------------------------------------------------------
+   ACCESSIBILITY
+------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid #42d6c5;
+  outline-offset: 3px;
+}
+
+/* -------------------------------------------------------
+   GRADIENT TEXT
+------------------------------------------------------- */
+
+.gradient-text {
+  background:
+    linear-gradient(
+      135deg,
+      #42d6c5 0%,
+      #9ce7dd 48%,
+      #f4c95d 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+/* -------------------------------------------------------
+   MOBILE
+------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* -------------------------------------------------------
+   REDUCED MOTION
+------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
